@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputPhone = document.getElementById("input-phone");
   const inputAddress = document.getElementById("input-address");
   const inputEmail = document.getElementById("input-email");
+  const inputWebsite = document.getElementById("input-website");
 
   // Các phần tử hiển thị thông tin bên phải
   const displayFullName = document.getElementById("display-full-name");
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayPhone = document.getElementById("display-phone");
   const displayAddress = document.getElementById("display-address");
   const displayEmail = document.getElementById("display-email");
+  const displayWebsite = document.getElementById("display-website");
 
   // Hàm cập nhật thông tin
   function updateInfo() {
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayPhone.textContent = inputPhone.value || "Số điện thoại";
     displayAddress.textContent = inputAddress.value || "Địa chỉ";
     displayEmail.textContent = inputEmail.value || "Email";
+    displayWebsite.textContent = inputWebsite.value || "Website";
   }
 
   // Thêm sự kiện `submit` cho form để cập nhật thông tin khi bấm nút submit
