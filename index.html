@@ -186,51 +186,69 @@
                     <div class="form__group">
                       <h2 class="form__group-title">Links</h2>
 
-                      <div class="form__field dark">
-                        <label for="fullName" class="form__label">
-                          <i class="fa-brands fa-facebook"></i>
-                          Facebook</label
-                        >
-                        <input
-                          type="text"
-                          id="full-name"
-                          class="form__input"
-                          placeholder="https://www.facebook.com/"
-                        />
-                      </div>
+                      <div id="new-link-container">
+                        <div class="form__field dark">
+                          <label for="facebook" class="form__label">
+                            <i class="fa-brands fa-facebook"></i>
+                            Facebook</label
+                          >
+                          <input
+                            type="text"
+                            id="facebook"
+                            class="form__input"
+                            placeholder="https://www.facebook.com/"
+                          />
+                        </div>
 
-                      <div class="form__field dark">
-                        <label for="nickname" class="form__label">
-                          <i class="fa-brands fa-instagram"></i>
-                          Instagram
-                        </label>
-                        <input
-                          type="text"
-                          id="instagram"
-                          class="form__input"
-                          placeholder="https://www.instagram.com/"
-                        />
-                      </div>
-                      <div class="form__field dark">
-                        <label for="nickname" class="form__label">
-                          <i class="fa-brands fa-twitter"></i>
-                          Twitter</label
-                        >
-                        <input
-                          type="text"
-                          id="twitter"
-                          class="form__input"
-                          placeholder="https://www.twitter.com/"
-                        />
+                        <div class="form__field dark">
+                          <label for="instagram" class="form__label">
+                            <i class="fa-brands fa-instagram"></i>
+                            Instagram
+                          </label>
+                          <input
+                            type="text"
+                            id="instagram"
+                            class="form__input"
+                            placeholder="https://www.instagram.com/"
+                          />
+                        </div>
+
+                        <div class="form__field dark">
+                          <label for="twitter" class="form__label">
+                            <i class="fa-brands fa-twitter"></i>
+                            Twitter</label
+                          >
+                          <input
+                            type="text"
+                            id="twitter"
+                            class="form__input"
+                            placeholder="https://www.twitter.com/"
+                          />
+                        </div>
                       </div>
 
                       <div class="icons">
                         <div class="icons__container">
-                          <i class="fa-brands fa-facebook active"></i>
-                          <i class="fa-brands fa-instagram active"></i>
-                          <i class="fa-brands fa-twitter active"></i>
-                          <i class="fa-brands fa-youtube"></i>
-                          <i class="fa-brands fa-linkedin"></i>
+                          <i
+                            class="fa-brands fa-facebook active"
+                            data-platform="facebook"
+                          ></i>
+                          <i
+                            class="fa-brands fa-instagram active"
+                            data-platform="instagram"
+                          ></i>
+                          <i
+                            class="fa-brands fa-twitter active"
+                            data-platform="twitter"
+                          ></i>
+                          <i
+                            class="fa-brands fa-youtube"
+                            data-platform="youtube"
+                          ></i>
+                          <i
+                            class="fa-brands fa-linkedin"
+                            data-platform="linkedin"
+                          ></i>
                         </div>
                       </div>
                     </div>

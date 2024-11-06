@@ -53,4 +53,86 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gọi hàm cập nhật thông tin
     updateInfo();
   });
+
+  const icons = document.querySelectorAll(".icons__container i");
+  const newLinkContainer = document.getElementById("new-link-container");
+
+  // Thêm sự kiện khi click vào biểu tượng
+  icons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      // Lấy nền tảng từ thuộc tính dữ liệu của biểu tượng
+      const platform = icon.dataset.platform;
+      const platformField = document.getElementById(platform); // Lấy trường nhập liệu của nền tảng
+      const platformLabel = document.querySelector(`label[for="${platform}"]`); // Lấy label của nền tảng
+      const parentField = platformField
+        ? platformField.closest(".form__field")
+        : null; // Lấy thẻ cha của trường nhập liệu
+
+      // Thêm hoặc xóa class 'active' khi click vào biểu tượng
+      icon.classList.toggle("active");
+
+      // Nếu biểu tượng được kích hoạt và trường nhập liệu chưa tồn tại, tạo mới
+      if (icon.classList.contains("active") && !platformField) {
+        // Tạo trường nhập liệu mới
+        const newField = document.createElement("div");
+        newField.classList.add("form__field", "dark");
+        newField.id = platform; // Đặt id cho trường nhập liệu
+        newField.innerHTML = `
+          <label for="${platform}" class="form__label">
+            <i class="fa-brands fa-${platform}"></i> 
+            ${platform.charAt(0).toUpperCase() + platform.slice(1)}
+          </label>
+          <input
+            type="text"
+            id="${platform}"
+            class="form__input"
+            placeholder="https://www.${platform}.com/"
+          />
+        `;
+        newLinkContainer.appendChild(newField);
+      }
+
+      // Nếu biểu tượng bị bỏ chọn và trường nhập liệu đã có, xóa cả trường nhập liệu và label
+      else if (!icon.classList.contains("active") && platformField) {
+        // Xóa trường nhập liệu và label
+        platformField.remove();
+        if (platformLabel) platformLabel.remove();
+
+        // Kiểm tra và xóa thẻ 'form__field dark' nếu không còn input nào bên trong
+        if (parentField && !parentField.querySelector(".form__input")) {
+          parentField.remove(); // Xóa cả thẻ 'form__field dark' nếu không còn input
+        }
+      }
+    });
+  });
+
+  // Mặc định active các biểu tượng Facebook, Instagram, Twitter
+  const defaultActiveIcons = ["facebook", "instagram", "twitter"];
+  defaultActiveIcons.forEach((platform) => {
+    const icon = document.querySelector(
+      `.icons__container i[data-platform="${platform}"]`
+    );
+    icon.classList.add("active");
+
+    // Tạo trường nhập liệu tương ứng cho các biểu tượng mặc định active
+    const platformField = document.getElementById(platform);
+    if (!platformField) {
+      const newField = document.createElement("div");
+      newField.classList.add("form__field", "dark");
+      newField.id = platform;
+      newField.innerHTML = `
+        <label for="${platform}" class="form__label">
+          <i class="fa-brands fa-${platform}"></i>
+          ${platform.charAt(0).toUpperCase() + platform.slice(1)}
+        </label>
+        <input
+          type="text"
+          id="${platform}"
+          class="form__input"
+          placeholder="https://www.${platform}.com/"
+        />
+      `;
+      newLinkContainer.appendChild(newField);
+    }
+  });
 });
