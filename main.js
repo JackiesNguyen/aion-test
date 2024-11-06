@@ -159,4 +159,28 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.fontFamily = selectedFont;
     });
   });
+
+  // Handle copy
+  document.getElementById("copyButton").addEventListener("click", function () {
+    // Chọn tất cả nội dung cần sao chép
+    var contentToCopy = document.querySelector(".card__info-content").innerText;
+
+    // Tạo một textarea tạm thời để copy
+    var textArea = document.createElement("textarea");
+    textArea.value = contentToCopy;
+    document.body.appendChild(textArea);
+
+    // Chọn nội dung trong textarea
+    textArea.select();
+    textArea.setSelectionRange(0, 99999); // Cho phép chọn trên thiết bị di động
+
+    // Thực hiện sao chép
+    document.execCommand("copy");
+
+    // Xóa textarea tạm thời
+    document.body.removeChild(textArea);
+
+    // Hiển thị thông báo sao chép thành công
+    alert("Đã sao chép nội dung!");
+  });
 });
