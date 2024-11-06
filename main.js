@@ -138,4 +138,25 @@ document.addEventListener("DOMContentLoaded", () => {
       newLinkContainer.appendChild(newField);
     }
   });
+
+  // Lấy tất cả các tùy chọn màu
+  const colorOptions = document.querySelectorAll(".color-option");
+  colorOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const selectedColor = option.getAttribute("data-color");
+      document.documentElement.style.setProperty(
+        "--primary-color",
+        selectedColor
+      );
+    });
+  });
+
+  // Lấy tất cả các tùy chọn font
+  const fontOptions = document.querySelectorAll(".font-option");
+  fontOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const selectedFont = option.getAttribute("data-font");
+      document.body.style.fontFamily = selectedFont;
+    });
+  });
 });
